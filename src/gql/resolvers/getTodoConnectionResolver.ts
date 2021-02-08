@@ -17,7 +17,7 @@ export async function getTodoConnectionResolver(
     node: Todo;
   }[];
 }> {
-  const todos = await connection.select("*");
+  const todos = await connection.select("*"); 
   return {
     pageInfo: {
       totalCount: todos.length,

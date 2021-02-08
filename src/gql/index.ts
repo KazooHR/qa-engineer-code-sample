@@ -24,7 +24,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   playground: true,
-  debug: true,
+  debug: false,
 });
 
 server.listen().then(({ url, port }) => {

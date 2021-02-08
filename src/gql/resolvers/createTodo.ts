@@ -1,3 +1,5 @@
+import { ulid } from "ulid";
+
 import { getConnection } from "../db";
 import { getTodoConnectionResolver } from "./getTodoConnectionResolver";
 
@@ -7,17 +9,20 @@ interface TodoInput {
 }
 
 export async function createTodo(parent: unknown, args: { input: TodoInput }) {
-  const todoConnection = getConnection("todo");
   try {
-    await todoConnection.insert(args.input);
+    await getConnection("todo").insert({
+      id: ulid(),
+      complete: Boolean(args.input.complete),
+      todo: args.input.todo,
+    });
     return {
       errors: [],
-      todos: getTodoConnectionResolver(todoConnection),
+      todos: getTodoConnectionResolver(getConnection("todo")),
     };
   } catch (e) {
     return {
-      errors: [],
-      todos: getTodoConnectionResolver(todoConnection),
+      errors: [e.message],
+      todos: getTodoConnectionResolver(getConnection("todo")),
     };
   }
 }
