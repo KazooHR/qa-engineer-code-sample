@@ -1,5 +1,12 @@
 # A simple TODO app with user authentication
 
+In `cypress/integration`, create some sample UI tests using the built-in tooling (Cypress). Consult the documentation for how to properly write tests and organize them in a manner you see fit. We will ask questions about:
+
+- What you choose to test
+- What you choose _not_ to test
+- How you organize the tests
+- How robust your test suite is
+
 ## Setup and running instructions
 
 Requirements:
