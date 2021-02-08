@@ -66,3 +66,15 @@ $ yarn develop
 ```bash
 $ open http://localhost:8080
 ```
+
+### Open the Test Runner
+
+```bash
+$ yarn cypress open
+```
+
+To write tests and view a sample test, open the folder:
+
+```
+cypress/integration/sample_spec.js
+```

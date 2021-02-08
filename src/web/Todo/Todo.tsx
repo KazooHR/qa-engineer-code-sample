@@ -9,6 +9,17 @@ export function Todo({ todo }: { todo: Omit<Todo, "__typename"> }) {
   const [complete, setComplete] = React.useState(todo.complete);
 
   const [updateTodo] = useUpdateTodoMutation();
+  const deleteTodo = () =>
+    updateTodo({
+      variables: {
+        input: {
+          id: todo.id,
+          todo: todoText,
+          complete,
+          deleted: true,
+        },
+      },
+    });
   const save = React.useCallback(
     debounce(
       (
@@ -61,13 +72,7 @@ export function Todo({ todo }: { todo: Omit<Todo, "__typename"> }) {
           <span className="complete" data-testid="complete">
             {todoText}
           </span>
-          <button
-            data-testid="delete-todo"
-            type="button"
-            onClick={() => {
-              save(todo.id, todoText, complete, true);
-            }}
-          >
+          <button data-testid="delete-todo" type="button" onClick={deleteTodo}>
             Delete
           </button>
         </>
