@@ -16,6 +16,7 @@ Requirements:
 - Node Version Manager (nvm) and Node v. 14
 - Yarn
 - Docker
+- Mac (if you're not on a Mac, give it a whirl :D)
 
 ### Install Docker
 
