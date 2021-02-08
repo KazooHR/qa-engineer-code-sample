@@ -18,7 +18,7 @@ export async function getTodoConnectionResolver(
     node: Todo;
   }[];
 }> {
-  const todosPromise = getConnection("todo").select("*");
+  const todosPromise = getConnection("todo").select("*").orderBy("id");
 
   if (!includeDeleted) {
     todosPromise.where("deleted", "=", false);

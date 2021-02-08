@@ -19,6 +19,11 @@ export function Todo({ todo }: { todo: Omit<Todo, "__typename"> }) {
           deleted: true,
         },
       },
+      refetchQueries: [
+        {
+          query: TodosDocument,
+        },
+      ],
     });
   const save = React.useCallback(
     debounce(
@@ -43,7 +48,7 @@ export function Todo({ todo }: { todo: Omit<Todo, "__typename"> }) {
               query: TodosDocument,
             },
           ],
-        }).then((result) => {
+        }).then(() => {
           setSaving(false);
         });
       },
@@ -55,10 +60,6 @@ export function Todo({ todo }: { todo: Omit<Todo, "__typename"> }) {
   React.useEffect(() => {
     save(todo.id, todoText, complete);
   }, [todo.id, todoText, complete]);
-
-  if (todo.deleted) {
-    return null;
-  }
 
   return (
     <li key={todo.id} data-testid={`todo-${todo.id}`}>

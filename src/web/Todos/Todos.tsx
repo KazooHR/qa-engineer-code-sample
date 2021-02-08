@@ -15,7 +15,7 @@ function ConnectedTodos() {
     <div>
       <ul data-testid="todos-list">
         {data?.todos.edges.map((todo) => (
-          <Todo todo={todo.node} />
+          <Todo key={todo.cursor} todo={todo.node} />
         ))}
       </ul>
       <NewTodo />

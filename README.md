@@ -7,6 +7,8 @@ In `cypress/integration`, create some sample UI tests using the built-in tooling
 - How you organize the tests
 - How robust your test suite is
 
+Bonus points for finding bugs!
+
 ## Setup and running instructions
 
 Requirements:
