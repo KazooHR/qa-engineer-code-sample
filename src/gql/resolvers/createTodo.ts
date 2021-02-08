@@ -17,12 +17,12 @@ export async function createTodo(parent: unknown, args: { input: TodoInput }) {
     });
     return {
       errors: [],
-      todos: getTodoConnectionResolver(getConnection("todo")),
+      todos: getTodoConnectionResolver(),
     };
   } catch (e) {
     return {
       errors: [e.message],
-      todos: getTodoConnectionResolver(getConnection("todo")),
+      todos: getTodoConnectionResolver(),
     };
   }
 }

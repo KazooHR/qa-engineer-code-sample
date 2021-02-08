@@ -4,6 +4,7 @@ import * as fs from "fs";
 
 import { todos } from "./resolvers/todos";
 import { createTodo } from "./resolvers/createTodo";
+import { updateTodo } from "./resolvers/updateTodo";
 
 const schema = path.resolve(__dirname, "./schema.graphql");
 const typeDefs = gql(fs.readFileSync(schema).toString());
@@ -17,6 +18,7 @@ const resolvers = {
   },
   Mutation: {
     createTodo,
+    updateTodo,
   },
 };
 
@@ -24,7 +26,10 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   playground: true,
-  debug: false,
+  debug: true,
+  cacheControl: {
+    defaultMaxAge: 0,
+  },
 });
 
 server.listen().then(({ url, port }) => {

@@ -1,9 +1,10 @@
 import * as knex from "knex";
 
-interface Entities {
+export interface Entities {
   todo: {
     id: string;
     todo: string;
+    deleted: boolean;
     complete: boolean;
   };
 }

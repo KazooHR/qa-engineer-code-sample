@@ -1,1 +1,1 @@
-export { getConnection, getRawConnection } from "./db";
+export { getConnection, getRawConnection, Entities } from "./db";

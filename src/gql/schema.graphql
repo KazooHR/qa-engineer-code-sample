@@ -4,8 +4,8 @@ type Query {
 }
 
 type Mutation {
-  createTodo(input: TodoInput!): TodoMutationResult!
-  updateTodo(input: TodoInput!): TodoMutationResult!
+  createTodo(input: CreateTodoInput!): TodoMutationResult!
+  updateTodo(input: UpdateTodoInput!): TodoMutationResult!
 }
 
 type TodoMutationResult {
@@ -27,8 +27,15 @@ type TodoConnection {
   edges: [TodoEdge!]!
 }
 
-input TodoInput {
+input CreateTodoInput {
   todo: String!
+  complete: Boolean
+}
+
+input UpdateTodoInput {
+  id: String!
+  todo: String
+  deleted: Boolean
   complete: Boolean
 }
 

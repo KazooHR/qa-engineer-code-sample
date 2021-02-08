@@ -1,14 +1,13 @@
-import knex from "knex";
+import { getConnection } from "../db";
 
 interface Todo {
   id: string;
   todo: string;
+  deleted: boolean;
   complete: boolean;
 }
 
-export async function getTodoConnectionResolver(
-  connection: knex.QueryBuilder<Todo, Todo[]>
-): Promise<{
+export async function getTodoConnectionResolver(): Promise<{
   pageInfo: {
     totalCount: number;
   };
@@ -17,7 +16,9 @@ export async function getTodoConnectionResolver(
     node: Todo;
   }[];
 }> {
-  const todos = await connection.select("*"); 
+  const todos = await getConnection("todo")
+    .select("*")
+    .where("deleted", "=", false);
   return {
     pageInfo: {
       totalCount: todos.length,

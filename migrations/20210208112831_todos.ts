@@ -5,6 +5,7 @@ export async function up(knex: Knex): Promise<void> {
     table.string("id", 26).primary();
     table.text("todo").notNullable();
     table.boolean("complete").notNullable().defaultTo(false);
+    table.boolean("deleted").notNullable().defaultTo(false);
   });
 }
 
