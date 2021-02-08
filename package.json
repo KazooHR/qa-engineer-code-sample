@@ -17,7 +17,8 @@
     "develop:gql": "yarn n src/gql/index.ts",
     "develop:frontend": "yarn webpack serve -c src/web/webpack.config.ts",
     "knex": "yarn n node_modules/.bin/knex",
-    "start": "yarn concurrently npm:develop:frontend",
+    "postinstall": "yarn build:graphql",
+    "start": "yarn develop",
     "webpack": "yarn n node_modules/.bin/webpack"
   },
   "dependencies": {

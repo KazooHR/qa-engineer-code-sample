@@ -48,3 +48,21 @@ $ npm i -g yarn
 ```bash
 $ yarn
 ```
+
+### Start Docker Dependencies
+
+```bash
+$ yarn docker
+```
+
+### Start the Development Server
+
+```bash
+$ yarn develop
+```
+
+### Navigate to the site
+
+```bash
+$ open http://localhost:8080
+```
