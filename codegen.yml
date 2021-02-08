@@ -1,0 +1,11 @@
+overwrite: true
+schema: "./src/gql/schema.graphql"
+documents: "./src/web/**/*.graphql"
+generates:
+  src/web/generated.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      enumsAsTypes: true

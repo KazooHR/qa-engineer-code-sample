@@ -1,9 +1,22 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import {
+  ApolloClient,
+  NormalizedCacheObject,
+  InMemoryCache,
+  ApolloProvider,
+} from "@apollo/client";
 
-import { Routes } from './Routes';
+import { Routes } from "./Routes";
+
+const client: ApolloClient<NormalizedCacheObject> = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: "http://localhost:4000",
+});
 
 ReactDOM.render(
-  <Routes />,
-  document.getElementById('root') as HTMLElement
+  <ApolloProvider client={client}>
+    <Routes />
+  </ApolloProvider>,
+  document.getElementById("root") as HTMLElement
 );

@@ -1,0 +1,15 @@
+query Todos {
+  todos {
+    pageInfo {
+      totalCount
+    }
+    edges {
+      cursor
+      node {
+        id
+        todo
+        complete
+      }
+    }
+  }
+}

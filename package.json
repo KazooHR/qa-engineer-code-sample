@@ -8,10 +8,12 @@
   "license": "MIT",
   "private": false,
   "scripts": {
+    "build:graphql": "yarn graphql-codegen --config codegen.yml",
     "n": "yarn ts-node --transpile-only -r dotenv/config",
     "db:migrate": "yarn knex migrate:latest",
     "db:reset": "yarn n scripts/dbReset.ts; yarn db:migrate",
     "docker": "docker-compose up -d",
+    "develop": "yarn concurrently npm:develop:gql npm:develop:frontend",
     "develop:gql": "yarn n src/gql/index.ts",
     "develop:frontend": "yarn webpack serve -c src/web/webpack.config.ts",
     "knex": "yarn n node_modules/.bin/knex",
@@ -19,6 +21,11 @@
     "webpack": "yarn n node_modules/.bin/webpack"
   },
   "dependencies": {
+    "@apollo/client": "^3.3.8",
+    "@graphql-codegen/cli": "^1.20.1",
+    "@graphql-codegen/typescript": "^1.20.2",
+    "@graphql-codegen/typescript-operations": "^1.17.14",
+    "@graphql-codegen/typescript-react-apollo": "^2.2.1",
     "apollo-server": "^2.19.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
