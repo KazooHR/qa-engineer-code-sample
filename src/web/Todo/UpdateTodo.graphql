@@ -1,0 +1,19 @@
+mutation UpdateTodo($input: UpdateTodoInput!) {
+  updateTodo(input: $input) {
+    errors
+    todos {
+      pageInfo {
+        totalCount
+      }
+      edges {
+        cursor
+        node {
+          id
+          todo
+          complete
+          deleted
+        }
+      }
+    }
+  }
+}

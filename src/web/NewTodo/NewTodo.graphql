@@ -1,0 +1,18 @@
+mutation NewTodo($input: CreateTodoInput!) {
+  createTodo(input: $input) {
+    errors
+    todos {
+      pageInfo {
+        totalCount
+      }
+      edges {
+        cursor
+        node {
+          id
+          complete
+          todo
+        }
+      }
+    }
+  }
+}

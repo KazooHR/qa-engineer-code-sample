@@ -1,6 +1,6 @@
-import { ApolloServer, gql } from "apollo-server";
 import * as path from "path";
 import * as fs from "fs";
+import { ApolloServer, gql } from "apollo-server";
 
 import { todos } from "./resolvers/todos";
 import { createTodo } from "./resolvers/createTodo";
@@ -26,6 +26,7 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   playground: true,
+  debug: true,
 });
 
 server.listen().then(({ url, port }) => {

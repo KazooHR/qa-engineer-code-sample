@@ -3,6 +3,16 @@
   <head>
     <meta charset="utf-8"/>
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style type="text/css">
+      .loading {
+        pointer-events: none;
+        opacity: .75;
+      }
+      .complete {
+        text-decoration: line-through;
+        opacity: .5;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>

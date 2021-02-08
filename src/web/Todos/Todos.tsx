@@ -1,6 +1,8 @@
 import * as React from "react";
 
 import { useTodosQuery } from "../generated";
+import { NewTodo } from "../NewTodo";
+import { Todo } from "../Todo";
 
 function ConnectedTodos() {
   const { loading, data } = useTodosQuery();
@@ -10,13 +12,14 @@ function ConnectedTodos() {
   }
 
   return (
-    <ul data-testid="todos-list">
-      {data?.todos.edges.map((todo) => (
-        <li key={todo.cursor} data-testid={`todo-${todo.node.id}`}>
-          {todo.node.todo}
-        </li>
-      ))}
-    </ul>
+    <div>
+      <ul data-testid="todos-list">
+        {data?.todos.edges.map((todo) => (
+          <Todo todo={todo.node} />
+        ))}
+      </ul>
+      <NewTodo />
+    </div>
   );
 }
 

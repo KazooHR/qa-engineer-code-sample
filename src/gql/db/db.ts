@@ -18,7 +18,11 @@ export function getRawConnection<T = any>() {
     );
   }
 
-  return knex<T>(connection);
+  return knex<T>({
+    client: "pg",
+    connection,
+    pool: { min: 0, max: 7 },
+  });
 }
 
 export function getConnection<Entity extends keyof Entities>(entity: Entity) {

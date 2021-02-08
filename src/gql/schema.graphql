@@ -40,6 +40,7 @@ input UpdateTodoInput {
 }
 
 type Todo {
+  deleted: Boolean!
   id: String!
   todo: String!
   complete: Boolean!

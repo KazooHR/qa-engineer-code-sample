@@ -9,6 +9,7 @@ query Todos {
         id
         todo
         complete
+        deleted
       }
     }
   }

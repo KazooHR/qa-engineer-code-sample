@@ -30,7 +30,7 @@ export async function updateTodo(parent: unknown, args: { input: TodoInput }) {
 
     return {
       errors: [],
-      todos: getTodoConnectionResolver(),
+      todos: getTodoConnectionResolver(true),
     };
   } catch (e) {
     return {

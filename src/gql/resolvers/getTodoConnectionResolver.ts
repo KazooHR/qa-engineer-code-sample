@@ -7,7 +7,9 @@ interface Todo {
   complete: boolean;
 }
 
-export async function getTodoConnectionResolver(): Promise<{
+export async function getTodoConnectionResolver(
+  includeDeleted: boolean = false
+): Promise<{
   pageInfo: {
     totalCount: number;
   };
@@ -16,9 +18,14 @@ export async function getTodoConnectionResolver(): Promise<{
     node: Todo;
   }[];
 }> {
-  const todos = await getConnection("todo")
-    .select("*")
-    .where("deleted", "=", false);
+  const todosPromise = getConnection("todo").select("*");
+
+  if (!includeDeleted) {
+    todosPromise.where("deleted", "=", false);
+  }
+
+  const todos = await todosPromise;
+
   return {
     pageInfo: {
       totalCount: todos.length,
