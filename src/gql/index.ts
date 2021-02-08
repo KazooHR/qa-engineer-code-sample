@@ -26,10 +26,6 @@ const server = new ApolloServer({
   typeDefs,
   resolvers,
   playground: true,
-  debug: true,
-  cacheControl: {
-    defaultMaxAge: 0,
-  },
 });
 
 server.listen().then(({ url, port }) => {
