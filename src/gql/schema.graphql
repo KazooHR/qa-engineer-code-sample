@@ -1,3 +1,39 @@
 type Query {
   ping: String!
+  todos: TodoConnection!
+}
+
+type Mutation {
+  createTodo(input: TodoInput!): TodoMutationResult!
+  updateTodo(input: TodoInput!): TodoMutationResult!
+}
+
+type TodoMutationResult {
+  errors: [String!]
+  todos: TodoConnection!
+}
+
+type PageInfo {
+  totalCount: Int!
+}
+
+type TodoEdge {
+  cursor: String!
+  node: Todo!
+}
+
+type TodoConnection {
+  pageInfo: PageInfo!
+  edges: [TodoEdge!]!
+}
+
+input TodoInput {
+  todo: String!
+  complete: Boolean
+}
+
+type Todo {
+  id: String!
+  todo: String!
+  complete: Boolean!
 }
