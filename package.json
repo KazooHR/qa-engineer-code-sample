@@ -16,10 +16,10 @@
     "develop": "yarn concurrently npm:develop:gql npm:develop:frontend",
     "develop:gql": "yarn n src/gql/index.ts",
     "develop:frontend": "yarn webpack serve -c src/web/webpack.config.ts",
-    "knex": "yarn n node_modules/.bin/knex",
+    "knex": "yarn n node_modules/knex/bin/cli.js",
     "postinstall": "yarn build:graphql",
     "start": "yarn develop",
-    "webpack": "yarn n node_modules/.bin/webpack"
+    "webpack": "yarn n node_modules/webpack/bin/webpack.js"
   },
   "dependencies": {
     "@apollo/client": "^3.3.8",
