@@ -65,6 +65,12 @@ $ yarn
 $ yarn docker
 ```
 
+### Run the migrations
+
+```bash
+$ yarn db:reset
+```
+
 ### Start the Development Server
 
 ```bash
