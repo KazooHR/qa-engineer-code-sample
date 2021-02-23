@@ -3,7 +3,7 @@ import { Configuration } from "webpack";
 import * as HtmlWebpackPlugin from "html-webpack-plugin";
 
 const webpackConfig: Configuration = {
-  entry: "./src/web/index.tsx",
+  entry: path.resolve(__dirname, "index.tsx"),
   mode: "development",
   devtool: "inline-source-map",
   devServer: {
@@ -28,7 +28,7 @@ const webpackConfig: Configuration = {
   plugins: [
     new HtmlWebpackPlugin({
       title: "Todo at Kazoo",
-      template: "src/web/entry.html",
+      template: path.resolve(__dirname, "entry.html"),
     }),
   ],
   resolve: {
